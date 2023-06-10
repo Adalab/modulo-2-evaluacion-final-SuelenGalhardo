@@ -1,5 +1,33 @@
-.page__header {
+.hero {
+  height: 25vh;
   display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 3rem;
+  align-items: flex-end;
+  justify-content: center;
+  background-image: url('../images/castillo-disney.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  &__box {
+    width: 80vw;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: white;
+    margin-bottom: -25px;
+    box-shadow: 0 1px 1px;
+  }
+}
+
+.selection {
+  width: 80vh;
+  height: 20px;
+  border: 1px blue solid;
+}
+.submit {
+  width: 6vh;
+  height: 25px;
+  border: 1px blue solid;
+  background-color: blue;
 }

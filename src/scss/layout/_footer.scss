@@ -1,8 +1,12 @@
-.page__footer {
-  position: fixed;
-  left: 0;
+.footer {
+  height: 40px;
+  width: 100%;
+  background-color: blue;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
   bottom: 0;
-  width: 100vw;
-  padding: 1rem;
-  color: $color-secondary;
 }
