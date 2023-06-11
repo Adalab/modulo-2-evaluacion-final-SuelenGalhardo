@@ -1,8 +1,8 @@
 'use strict';
 
 const ListElement = document.querySelector('.js__list');
-const InputSelection = document.querySelector('.js__selection');
-const InputBtn = document.querySelector('.js__submit');
+//const InputSelection = document.querySelector('.js__selection');
+//const InputBtn = document.querySelector('.js__submit');
 
 const serverURL = `https://api.disneyapi.dev/character?page=50`;
 
@@ -19,7 +19,7 @@ fetch(serverURL)
     renderListCharacters(animesDataList);
   });
 
-//FUNCIONS
+//FUNCIONS listado de tarjeta
 function renderListCharacters(list) {
   for (const eachCharacter of list) {
     ListElement.innerHTML += renderOnlyCharacter(eachCharacter);
@@ -32,6 +32,14 @@ function renderOnlyCharacter(dataObjeto) {
                 <p class="character__name js_name">${dataObjeto.name}</p>
                  
               </li>`;
+  const imgValue = dataObjeto.imageUrl;
+  const witeImg = 'https://via.placeholder.com/210x295/ffffff/555555/?text=Disney';
+  if (imgValue === '') {
+    html = `<li id="${dataObjeto._id}"class="character__card">
+                                <img  class="character__img js_img src="${witeImg}" alt="Imagen en Blanco"" />
+                                <p class="character__name js_name">${dataObjeto.name}</p>
+                        </li>`;
+  }
   return html;
 }
 
