@@ -12,17 +12,13 @@
 }
 
 .characters__list {
-  display: grid;
-  grid-column: 1fr;
-  grid-template-columns: 200px 200px 200px 200px 200px 200px;
-  grid-template-rows: 200px 200px 200px 200px 200px 200px;
-  grid-gap: 5px;
-  grid-template-areas: 'main';
+  display: flex;
 }
 .character__card {
   background-color: white;
   text-align: center;
-  box-shadow: 0 1px 1px;
+  box-shadow: 0 0.5px 0.5px;
+  transition: all 0.2s;
 }
 .character__img {
   width: 60%;
@@ -33,4 +29,15 @@
 }
 .character__card:hover {
   background-color: blueviolet;
+  transform: scale(0.5);
+}
+
+.favorites {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  color: blue;
+  padding: 80px 0 30px;
 }
