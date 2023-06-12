@@ -4,13 +4,27 @@ const listElement = document.querySelector('.js__list');
 const ulFavorites = document.querySelector('.js__list__Favorites');
 const inputSelection = document.querySelector('.js__selection');
 const inputBtn = document.querySelector('.js__submit');
+const resetBtn = document.querySelector('.js__resetbtn');
+const removeX = document.querySelector('.js__buttonX');
 const serverURL = `https://api.disneyapi.dev/character?`;
 
 let animesDataList = [];
+let animesFavorites = [];
 
 //peticion al servidor
 //storage
 //FETCH
+//LOCAL STORAGE
+
+const favLocalStorage = JSON.parse(localStorage.getItem('favAnimes'));
+start();
+
+function start() {
+  if (favLocalStorage) {
+    animesFavorites = favLocalStorage;
+    renderListFavorites(animesFavorites);
+  }
+}
 
 fetch(serverURL)
   .then((response) => response.json())
@@ -36,9 +50,13 @@ function addEventAnimes() {
 }
 
 function renderOnlyCharacter(dataObjeto) {
-  let html = `<li id="${dataObjeto._id}" class="character__card js__li__animes">
+  let html = `
+   <li id="${dataObjeto._id}" class="character__card js__li__animes">
+
                  <img class="character__img js_img" src="${dataObjeto.imageUrl}" alt="Disney Characters" />
                 <p class="character__name js_name">${dataObjeto.name}</p>
+                <button class="character__buttonX js__buttonX">X</button>
+              
                  
               </li>`;
 
@@ -51,7 +69,6 @@ function renderOnlyCharacter(dataObjeto) {
   }
   return html;
 }
-let animesFavorites = [];
 
 function handleClick(event) {
   const id = parseInt(event.currentTarget.id);
@@ -59,10 +76,11 @@ function handleClick(event) {
   const indexAnimes = animesFavorites.findIndex((item) => item._id === id);
   if (indexAnimes === -1) {
     animesFavorites.push(selectedAnimes);
+    localStorage.setItem('favAnimes', JSON.stringify(animesFavorites));
   } else {
     animesFavorites.splice(indexAnimes, 1);
   }
-  // guardar favoritos en LS
+
   renderListFavorites();
 }
 
@@ -84,3 +102,22 @@ const handleSearch = (event) => {
   renderListCharacters(filterList);
 };
 inputBtn.addEventListener('click', handleSearch);
+
+const handleReset = (event) => {
+  event.preventDefault();
+  animesFavorites = [];
+  localStorage.clear();
+  renderListFavorites();
+};
+resetBtn.addEventListener('click', handleReset);
+
+//event remove X
+const handleFavoritesRemove = (event) => {
+  //const id = parseInt(event.currentTarget.id);
+  // id = '${dataObjeto._id}';
+  console.log(event);
+  animesFavorites = [];
+  //en teoria no hace falta PD, cuando no hay formulario
+  event.preventDefault();
+};
+//removeX.addEventListener('click', handleFavoritesRemove);

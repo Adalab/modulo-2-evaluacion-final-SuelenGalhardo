@@ -33,7 +33,6 @@
 }
 
 .character__card {
-  background-color: white;
   text-align: center;
   box-shadow: 1px 2px 4px rgb(129, 165, 212);
   transition: all 0.2s;
@@ -43,11 +42,13 @@
   height: 60%;
   padding: 5px;
   border-radius: 50%;
-  text-align: center;
 }
 .character__card:hover {
   background-color: rgb(66, 91, 160);
   transform: scale(1.2);
+}
+.characters__list .character__buttonX {
+  display: none;
 }
 
 .favorites {
@@ -60,6 +61,10 @@
     font-family: 'Courier New', Courier, monospace;
     font-size: 1rem;
     font-weight: bold;
+
+    li {
+      background-color: rgb(186, 190, 190);
+    }
   }
 }
 .favorites__title {
