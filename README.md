@@ -1,36 +1,24 @@
-Módulo 2: Ejercicio de evaluación final:
+Module 2: Final evaluation exercise:
 
+The exercise consists of developing a web application that contains a list of Disney characters from all over the planet, which allows us to mark and unmark the characters as favorites and save them in localStorage.
 
+0-Basic
+structure First of all it is necessary to carry out a basic structure of the HTML on this model. No need to worry about measurements, colors, or typography until a later milestone.
+A list of search results where the image of the Disney character and the name appear.
+A text field and a button to search for a Disney character by its title.
 
-El ejercicio consiste en desarrollar una aplicación web que contiene un listado de personajes de Disney todo el
-planeta, que nos permite marcar y desmarcar los personajes como favoritos y guardarlos en localStorage.
+2- Show list
 
+3-Favorites
 
-0. Estructura básica
-En primer lugar hay que realizar una estructura básica del HTML sobre este modelo. No hay que preocuparse
-por las medidas, colores ni tipografía hasta un hito posterior.
+4-local storage
 
-1. Un listado de resultados de búsqueda donde aparece la imagen del personaje de Disney y el nombre.
-2. Un campo de texto y un botón para buscar un personajes de Disney por su título.
-2. Mostrar listado
-Mostraremos una lista de tarjetas con los resultados de los personajes de Disney que obtendremos del API de
-la página disneyapi (si quieres, puedes consultar la documentación del API en esta otra página).
+5-BONUS: Search
 
-1. Comenzaremos copiandonos los datos del API (el array de objetos) a una variable de nuestro código
-JavaScript y generando el HTML para un único personaje.
-2. Después, añadiremos un bucle para que se genere el HTML de cada personaje que hay en el array.
-3. Implementamos el código necesario para obtener el array de personajes desde el API con un fetch().
+6-BONUS: Delete favorites
 
-3. Favoritos
+7-BONUS: Fine tune the layout
 
-4. Almacenamiento local
-
-5. BONUS: Búsqueda
-
-6. BONUS: Borrar favoritos
-
-7. BONUS: Afinar la maquetación
-
-El límite de entrega es el martes 13 de junio a las 14:00.
+The deadline for delivery is Tuesday, June 13 at 2:00 p.m.
 
 http://beta.adalab.es/modulo-2-evaluacion-final-SuelenGalhardo/
