@@ -5,7 +5,7 @@ const ulFavorites = document.querySelector('.js__list__Favorites');
 const inputSelection = document.querySelector('.js__selection');
 const inputBtn = document.querySelector('.js__submit');
 const resetBtn = document.querySelector('.js__resetbtn');
-const removeFavorite = document.querySelectorAll('.js__buttonX');
+
 const serverURL = `https://api.disneyapi.dev/character?`;
 
 let animesDataList = [];
@@ -33,6 +33,7 @@ function renderListCharacters(listData) {
   for (const Characters of listData) {
     listElement.innerHTML += renderOnlyCharacter(Characters);
   }
+
   addEventAnimes();
 }
 
@@ -74,7 +75,7 @@ function handleClick(event) {
   } else {
     animesFavorites.splice(indexAnimes, 1);
   }
-  handleFavoritesRemove(event);
+  // handleFavoritesRemove(event);
   renderListFavorites();
 }
 
@@ -85,6 +86,7 @@ function renderListFavorites() {
   for (const Animesfav of animesFavorites) {
     ulFavorites.innerHTML += renderOnlyCharacter(Animesfav);
   }
+  handleClickReset();
 }
 
 function handleSearch(event) {
@@ -108,11 +110,17 @@ resetBtn.addEventListener('click', handleReset);
 //event remove X
 function handleFavoritesRemove(event) {
   event.preventDefault();
-  console.log(event);
   const id = parseInt(event.currentTarget.id);
-
   //bucle for(constante),y luego of para recoger lo que tu quierees;
-  //animesFavorites.filter((item) => item._id !== id);
-  //animesFavorites.splice(id);
+  //findIndex
+  const indexAnimes = animesFavorites.findIndex((item) => item._id === id);
+  animesFavorites.splice(indexAnimes, 1);
+  renderListFavorites();
 }
-removeFavorite.addEventListener('click', handleFavoritesRemove);
+
+function handleClickReset() {
+  const removeFavorite = document.querySelectorAll('.js__buttonX');
+  for (const test of removeFavorite) {
+    test.addEventListener('click', handleFavoritesRemove);
+  }
+}
