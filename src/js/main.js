@@ -5,7 +5,6 @@ const ulFavorites = document.querySelector('.js__list__Favorites');
 const inputSelection = document.querySelector('.js__selection');
 const inputBtn = document.querySelector('.js__submit');
 const resetBtn = document.querySelector('.js__resetbtn');
-
 const serverURL = `https://api.disneyapi.dev/character?`;
 
 let animesDataList = [];
@@ -75,11 +74,9 @@ function handleClick(event) {
   } else {
     animesFavorites.splice(indexAnimes, 1);
   }
-  // handleFavoritesRemove(event);
   renderListFavorites();
 }
 
-//Funcion para renderizar la lista de favoritos
 function renderListFavorites() {
   ulFavorites.innerHTML = '';
 
@@ -107,12 +104,9 @@ const handleReset = (event) => {
 };
 resetBtn.addEventListener('click', handleReset);
 
-//event remove X
 function handleFavoritesRemove(event) {
   event.preventDefault();
   const id = parseInt(event.currentTarget.id);
-  //bucle for(constante),y luego of para recoger lo que tu quierees;
-  //findIndex
   const indexAnimes = animesFavorites.findIndex((item) => item._id === id);
   animesFavorites.splice(indexAnimes, 1);
   renderListFavorites();
