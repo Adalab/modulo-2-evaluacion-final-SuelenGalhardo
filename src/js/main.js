@@ -5,16 +5,11 @@ const ulFavorites = document.querySelector('.js__list__Favorites');
 const inputSelection = document.querySelector('.js__selection');
 const inputBtn = document.querySelector('.js__submit');
 const resetBtn = document.querySelector('.js__resetbtn');
-const removeX = document.querySelector('.js__buttonX');
+const removeFavorite = document.querySelectorAll('.js__buttonX');
 const serverURL = `https://api.disneyapi.dev/character?`;
 
 let animesDataList = [];
 let animesFavorites = [];
-
-//peticion al servidor
-//storage
-//FETCH
-//LOCAL STORAGE
 
 const favLocalStorage = JSON.parse(localStorage.getItem('favAnimes'));
 start();
@@ -33,7 +28,6 @@ fetch(serverURL)
     renderListCharacters(animesDataList, listElement);
   });
 
-//FUNCIONS
 function renderListCharacters(listData) {
   listElement.innerHTML = '';
   for (const Characters of listData) {
@@ -52,18 +46,18 @@ function addEventAnimes() {
 function renderOnlyCharacter(dataObjeto) {
   let html = `
    <li id="${dataObjeto._id}" class="character__card js__li__animes">
-
+   <button class="character__buttonX js__buttonX">X</button>
                  <img class="character__img js_img" src="${dataObjeto.imageUrl}" alt="Disney Characters" />
                 <p class="character__name js_name">${dataObjeto.name}</p>
-                <button class="character__buttonX js__buttonX">X</button>
+               
               
                  
               </li>`;
 
   if (dataObjeto.imageUrl === undefined) {
-    const witeImg = 'https://via.placeholder.com/210x295/ffffff/555555/?text=Disney';
+    const whiteImg = 'https://via.placeholder.com/210x295/ffffff/555555/?text=Disney';
     html = `<li id="${dataObjeto._id}"class="character__card">
-                                <img class="character__img js_img" src="${witeImg}" alt="Imagen en Blanco" />
+                                <img class="character__img js_img" src="${whiteImg}" alt="Imagen en Blanco" />
                                 <p class="character__name js_name">${dataObjeto.name}</p>
                         </li>`;
   }
@@ -80,7 +74,7 @@ function handleClick(event) {
   } else {
     animesFavorites.splice(indexAnimes, 1);
   }
-
+  handleFavoritesRemove(event);
   renderListFavorites();
 }
 
@@ -93,14 +87,14 @@ function renderListFavorites() {
   }
 }
 
-const handleSearch = (event) => {
+function handleSearch(event) {
   event.preventDefault();
   const inputValue = inputSelection.value;
   const filterList = animesDataList.filter((item) =>
     item.name.toLowerCase().includes(inputValue.toLowerCase())
   );
   renderListCharacters(filterList);
-};
+}
 inputBtn.addEventListener('click', handleSearch);
 
 const handleReset = (event) => {
@@ -112,12 +106,13 @@ const handleReset = (event) => {
 resetBtn.addEventListener('click', handleReset);
 
 //event remove X
-const handleFavoritesRemove = (event) => {
-  //const id = parseInt(event.currentTarget.id);
-  // id = '${dataObjeto._id}';
-  console.log(event);
-  animesFavorites = [];
-  //en teoria no hace falta PD, cuando no hay formulario
+function handleFavoritesRemove(event) {
   event.preventDefault();
-};
-//removeX.addEventListener('click', handleFavoritesRemove);
+  console.log(event);
+  const id = parseInt(event.currentTarget.id);
+
+  //bucle for(constante),y luego of para recoger lo que tu quierees;
+  //animesFavorites.filter((item) => item._id !== id);
+  //animesFavorites.splice(id);
+}
+removeFavorite.addEventListener('click', handleFavoritesRemove);

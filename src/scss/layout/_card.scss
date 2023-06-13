@@ -47,6 +47,15 @@
   background-color: rgb(66, 91, 160);
   transform: scale(1.2);
 }
+.character__buttonX {
+  border-radius: 50%;
+  display: flex;
+  background-color: aliceblue;
+}
+.character__buttonX:hover {
+  background-color: burlywood;
+}
+
 .characters__list .character__buttonX {
   display: none;
 }
