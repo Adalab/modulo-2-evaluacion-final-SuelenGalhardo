@@ -46,7 +46,7 @@ function addEventAnimes() {
 function renderOnlyCharacter(dataObjeto) {
   let html = `
    <li id="${dataObjeto._id}" class="character__card js__li__animes">
-   <button class="character__buttonX js__buttonX">X</button>
+   <button class="character__buttonX js__buttonX"><i class="fa-solid fa-trash" style="color: #216ae8;"></i></button>
                  <img class="character__img js_img" src="${dataObjeto.imageUrl}" alt="Disney Characters" />
                 <p class="character__name js_name">${dataObjeto.name}</p>
                

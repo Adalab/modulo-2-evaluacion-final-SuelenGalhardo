@@ -20,7 +20,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Roboto', sans-serif;
     font-size: 2rem;
     font-weight: bold;
     color: blue;
@@ -49,17 +49,18 @@
   margin-bottom: 6px;
   border-radius: 50%;
 }
+.character__name {
+  font-family: 'Roboto Mono', monospace;
+  border: 1px solid #e0d4d4;
+}
 .character__card:hover {
-  background-color: rgb(66, 91, 160);
-  transform: scale(1.2);
+  background-color: rgb(173, 195, 253);
+  transform: scale(1);
 }
 .character__buttonX {
-  border-radius: 50%;
-
   position: absolute;
   top: 0;
   left: 0;
-  background-color: aliceblue;
 }
 .character__buttonX:hover {
   background-color: burlywood;
@@ -76,20 +77,20 @@
     gap: 10px;
     margin-top: 50px;
     color: blue;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     font-weight: bold;
 
     li {
-      background-color: rgb(186, 190, 190);
+      background-color: rgb(178, 127, 245);
     }
   }
   &__button {
     border-radius: 10%;
-    background-color: rgb(187, 200, 233);
+    background-color: rgb(173, 195, 253);
     margin: 50px 40px;
     padding: 5px 15px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Roboto Mono', monospace;
     color: blue;
     font-weight: bold;
     position: relative;
@@ -100,7 +101,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 100px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Roboto', sans-serif;
   font-size: 2rem;
   font-weight: bold;
   color: blue;
