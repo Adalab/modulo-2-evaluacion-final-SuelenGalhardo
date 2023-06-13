@@ -32,7 +32,6 @@ function renderListCharacters(listData) {
   for (const Characters of listData) {
     listElement.innerHTML += renderOnlyCharacter(Characters);
   }
-
   addEventAnimes();
 }
 
@@ -49,11 +48,8 @@ function renderOnlyCharacter(dataObjeto) {
    <button class="character__buttonX js__buttonX"><i class="fa-solid fa-trash" style="color: #216ae8;"></i></button>
                  <img class="character__img js_img" src="${dataObjeto.imageUrl}" alt="Disney Characters" />
                 <p class="character__name js_name">${dataObjeto.name}</p>
-               
-              
-                 
+                        
               </li>`;
-
   if (dataObjeto.imageUrl === undefined) {
     const whiteImg = 'https://via.placeholder.com/210x295/ffffff/555555/?text=Disney';
     html = `<li id="${dataObjeto._id}"class="character__card">
