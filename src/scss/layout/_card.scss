@@ -55,7 +55,7 @@
 }
 .character__card:hover {
   background-color: rgb(173, 195, 253);
-  transform: scale(1);
+  transform: scale(1.1);
 }
 .character__buttonX {
   position: absolute;
@@ -94,7 +94,11 @@
     color: blue;
     font-weight: bold;
     position: relative;
+    transition: all 0.2s;
   }
+}
+.favorites__button:hover {
+  transform: scale(1.1);
 }
 .favorites__title {
   display: flex;

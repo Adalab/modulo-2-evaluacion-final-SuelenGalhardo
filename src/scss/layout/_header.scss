@@ -32,4 +32,8 @@
   border: 1px blue solid;
   background-color: blue;
   position: relative;
+  transition: all 0.2s;
+}
+.submit:hover {
+  transform: scale(1.1);
 }
