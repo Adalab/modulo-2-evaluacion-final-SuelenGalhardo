@@ -48,6 +48,7 @@ function renderOnlyCharacter(dataObjeto) {
    <button class="character__buttonX js__buttonX"><i class="fa-solid fa-trash" style="color: #216ae8;"></i></button>
                  <img class="character__img js_img" src="${dataObjeto.imageUrl}" alt="Disney Characters" />
                 <p class="character__name js_name">${dataObjeto.name}</p>
+                <p class="character__name js_name">${dataObjeto.films}</p>
                         
               </li>`;
   if (dataObjeto.imageUrl === undefined) {
