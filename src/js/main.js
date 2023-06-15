@@ -5,10 +5,7 @@ const ulFavorites = document.querySelector('.js__list__Favorites');
 const inputSelection = document.querySelector('.js__selection');
 const inputBtn = document.querySelector('.js__submit');
 const resetBtn = document.querySelector('.js__resetbtn');
-<<<<<<< HEAD
-=======
 const btnLog = document.querySelector('.js__buttonLog');
->>>>>>> main
 const serverURL = `https://api.disneyapi.dev/character?`;
 
 let animesDataList = [];
@@ -52,12 +49,7 @@ function renderOnlyCharacter(dataObjeto) {
    <button class="character__buttonX js__buttonX"><i class="fa-solid fa-trash" style="color: #216ae8;"></i></button>
                  <img class="character__img js_img" src="${dataObjeto.imageUrl}" alt="Disney Characters" />
                 <p class="character__name js_name">${dataObjeto.name}</p>
-<<<<<<< HEAD
-                <p class="character__name js_name">${dataObjeto.films}</p>
-                        
-=======
                 <p>${dataObjeto.updatedAt}</p>       
->>>>>>> main
               </li>`;
   if (dataObjeto.imageUrl === undefined) {
     const whiteImg = 'https://via.placeholder.com/210x295/ffffff/555555/?text=Disney';
@@ -123,14 +115,11 @@ function handleClickReset() {
     test.addEventListener('click', handleFavoritesRemove);
   }
 }
-<<<<<<< HEAD
-=======
 
 function handleLog(event) {
   event.preventDefault();
-  for (let i = 0; i < animesDataList.name; i++) {
+  for (let i = 0; i < animesDataList.length; i++) {
     console.log(animesDataList[i].name);
   }
 }
 btnLog.addEventListener('click', handleLog);
->>>>>>> main
