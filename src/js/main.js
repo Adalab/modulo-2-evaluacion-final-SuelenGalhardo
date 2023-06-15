@@ -5,6 +5,7 @@ const ulFavorites = document.querySelector('.js__list__Favorites');
 const inputSelection = document.querySelector('.js__selection');
 const inputBtn = document.querySelector('.js__submit');
 const resetBtn = document.querySelector('.js__resetbtn');
+const btnLog = document.querySelector('.js__buttonLog');
 const serverURL = `https://api.disneyapi.dev/character?`;
 
 let animesDataList = [];
@@ -48,7 +49,7 @@ function renderOnlyCharacter(dataObjeto) {
    <button class="character__buttonX js__buttonX"><i class="fa-solid fa-trash" style="color: #216ae8;"></i></button>
                  <img class="character__img js_img" src="${dataObjeto.imageUrl}" alt="Disney Characters" />
                 <p class="character__name js_name">${dataObjeto.name}</p>
-                        
+                <p>${dataObjeto.updatedAt}</p>       
               </li>`;
   if (dataObjeto.imageUrl === undefined) {
     const whiteImg = 'https://via.placeholder.com/210x295/ffffff/555555/?text=Disney';
@@ -66,10 +67,10 @@ function handleClick(event) {
   const indexAnimes = animesFavorites.findIndex((item) => item._id === id);
   if (indexAnimes === -1) {
     animesFavorites.push(selectedAnimes);
-    localStorage.setItem('favAnimes', JSON.stringify(animesFavorites));
   } else {
     animesFavorites.splice(indexAnimes, 1);
   }
+  localStorage.setItem('favAnimes', JSON.stringify(animesFavorites));
   renderListFavorites();
 }
 
@@ -114,3 +115,11 @@ function handleClickReset() {
     test.addEventListener('click', handleFavoritesRemove);
   }
 }
+
+function handleLog(event) {
+  event.preventDefault();
+  for (let i = 0; i < animesDataList.name; i++) {
+    console.log(animesDataList[i].name);
+  }
+}
+btnLog.addEventListener('click', handleLog);
